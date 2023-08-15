@@ -1,0 +1,218 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Policy Stability Estimator</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<body>
+    <div class="container">
+    {% comment %} <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="{% url 'create' %}" >Home</a>
+              <a class="nav-link" href="{% url 'success' %}" >Success</a>
+              
+  
+            </div>
+          </div>
+        </div>
+      </nav> {% endcomment %}
+
+
+ 
+    <h3 class="display-5 text-center bg-secondary p-3 mb-2 text-white mt-3">Policy Choice Stability Estimator</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+        <!-- User Name -->
+        <div>
+        
+        <div class="text-center">
+          <h6 class="" style="">Policymaking Process: <span>Sensemaking</span></h6>
+        <label for="id_user_name" class="mt-3">User Name </label>
+        <input type="text" name="user_name" id="id_user_name" required class="border border-4 rounded" placeholder="Enter your name"><br>
+    
+  <div class="d-flex justify-content-center align-items-center mt-4">
+    <div class="row form-group">
+      <label for="policy_choice" class="mt-3 col-form-label col-md-2.5">Policy Choice</label>
+      <div class="col-md-8"> <!-- Adjust the column width as needed -->
+        <textarea class="form-control" name="policy_choice" required id="policy_choice" rows="2" placeholder="Enter policy code"></textarea>
+      </div>
+    </div>
+  </div>
+  
+      </div>
+  </div>
+        <!-- Justified -->
+        <div class="container ">
+            <div class="row">
+        <div class="cat-one col-md-4 card">
+          <h5 class="bg-light p-2 rounded-pill text-center mt-1">Positional Evidence</h5>
+        <p>Policy choice is: </p>
+        <h6>1. Justified</h6>
+        <div class="yes-no-flex">
+        <label for="justified_yes">Yes<input id="justified_yes" type="checkbox"  name="justified_yes" value="Yes" class="evidence_justified check"></label><br>
+        <label for="justified_no" class="mx-1" >No<input id="justified_no" type="checkbox" name="justified_no" value="No" class="evidence_justified check"></label><br>
+    </div>
+        <label for="justified_comment">Comment:</label>
+        <textarea required name="justified_comment" id="justified_comment" rows="4" cols="50" class="border border-4 rounded"></textarea><br>
+        <label for="justified_ style="border:none;cursor:pointer;"">File:</label>
+        <input type="file" name="justified_file" id="justified_file"><br>
+
+        <!-- Redistributive -->
+        <h6>2. Redistributive</h6>
+        <div class="yes-no-flex">
+        <label for="red_yes">Yes<input id="red_yes" type="checkbox" name="redistributive_yes" value="Yes" class="check"></label><br>
+        <label for="red_no" class="mx-1" >No<input id="red_no" type="checkbox" name="redistributive_no" value="No" class="check"></label><br>
+        </div>
+        <label for="redistributive_comment">Comment:</label>
+        <textarea required name="redistributive_comment" id="redistributive_comment" rows="4" cols="50" class="border border-4 rounded"></textarea><br>
+        <label for="redistributive_file">File:</label>
+        <input type="file" name="redistributive_file" id="redistributive_file"><br>
+        </div>
+
+        <!-- Practical -->
+        <div class="cat-two col-md-4 card">
+          <h5 class="bg-light p-2 rounded-pill text-center mt-1">Situational Evidence</h5>
+            <p>Policy choice is: </p>
+        <h6>1. Practical</h6>
+        <div class="yes-no-flex">
+        <label for="pra_yes">Yes<input id="pra_yes" type="checkbox" name="practical_yes" value="Yes" class="check"></label><br>
+        <label for="pra_no" class="mx-1" >No<input id="pra_no" type="checkbox" name="practical_no" value="No" class="check"></label><br>
+        </div>
+        <label for="practical_comment">Comment:</label>
+        <textarea required name="practical_comment" id="practical_comment" rows="4" cols="50" class="border border-4 rounded"></textarea><br>
+        <label for="practical_file">File:</label>
+        <input type="file"  name="practical_file" id="practical_file"><br>
+
+        <!-- Interventional -->
+        <h6>2. Interventional</h6>
+        <div class="yes-no-flex">
+        <label for="int_yes">Yes<input id="int_yes" type="checkbox" name="interventional_yes" value="Yes" class="check"></label><br>
+        <label for="int_no" class="mx-1" >No<input id="int_no" type="checkbox" name="interventional_no" value="No" class="check"></label><br>
+        </div>
+        <label for="interventional_comment">Comment:</label>
+        <textarea required name="interventional_comment" id="interventional_comment" rows="4" cols="50" class="border border-4 rounded"></textarea><br>
+        <label for="interventional_file">File:</label>
+        <input type="file"  name="interventional_file" id="interventional_file"><br>
+        </div>
+        <!-- Cost -->
+
+        <div class="cat-three col-md-4 card">
+          <h5 class="bg-light p-2 rounded-pill text-center mt-1">Value for money Evidence</h5>
+            <p>Policy choice is: </p>
+        <h6>1. Cost Effective</h6>
+        <div class="yes-no-flex">
+        <label for="cost_yes">Yes<input id="cost_yes" type="checkbox" name="cost_yes" value="Yes" class="check"></label><br>
+        <label for="cost_no" class="mx-1" >No<input id="cost_no" type="checkbox" name="cost_no" value="No" class="check"></label><br>
+        </div>
+        <label for="cost_comment">Comment:</label>
+        <textarea required name="cost_comment" id="cost_comment" rows="4" cols="50" class="border border-4 rounded"></textarea><br>
+        <label for="cost_file">File:</label>
+        <input type="file"  name="cost_file" id="cost_file"><br>
+
+        <!-- Finance -->
+        <h6>2. Financially Sustainable</h6>
+        <div class="yes-no-flex">
+        <label for="fin_yes">Yes<input id="fin_yes" type="checkbox" name="finance_yes" value="Yes" class="check"></label><br>
+        <label for="fin_no" class="mx-1" >No<input id="fin_no" type="checkbox" name="finance_no" value="No" class="check"></label><br>
+        </div>
+        <label for="finance_comment">Comment:</label>
+        <textarea required name="finance_comment" id="finance_comment" rows="4" cols="50" class="border border-4 rounded"></textarea><br>
+        <label for="finance_file">File:</label>
+        <input type="file" name="finance_file" id="finance_file"><br>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center mt-4">
+        <button type="submit" class="submit btn btn-success">Submit</button>
+</div>
+
+{% comment %} calculation part {% endcomment %}
+
+    </form>
+    <div class="calculation part">
+         
+      <div class="charts_calc container text-center">
+
+        <div class="calc_info row">
+         <div class="col">
+        <div class="calc_value mt-5"></div>
+
+        <div class="result-note"></div>
+        
+
+      </div>
+
+      <div class="col">  
+        <div id="chartContainer" class="d-flex justify-content-center align-items-center mt-4"></div>
+      </div>
+      </div>
+    
+    {% comment %} <div class="col">  
+      <div id="chartContainer" class="d-flex justify-content-center align-items-center mt-4"></div>
+    </div> {% endcomment %}
+    </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-4">
+    <button class="click-btn btn btn-primary mb-4">Check score</button>
+    </div>
+
+
+
+
+
+    <script>
+      function addCheckboxEventListeners(checkboxYes, checkboxNo) {
+        checkboxYes.addEventListener("change", function () {
+            if (checkboxYes.checked) {
+                checkboxNo.checked = false;
+            }
+        });
+    
+        checkboxNo.addEventListener("change", function () {
+            if (checkboxNo.checked) {
+                checkboxYes.checked = false;
+            }
+        });
+    }
+    
+    // Get references to the checkbox pairs
+    const checkboxPairs = [
+        [document.getElementById("justified_yes"), document.getElementById("justified_no")],
+        [document.getElementById("red_yes"), document.getElementById("red_no")],
+        [document.getElementById("pra_yes"), document.getElementById("pra_no")],
+        [document.getElementById("int_yes"), document.getElementById("int_no")],
+        [document.getElementById("cost_yes"), document.getElementById("cost_no")],
+        [document.getElementById("fin_yes"), document.getElementById("fin_no")]
+    ];
+    
+    // Add event listeners to all checkbox pairs
+    checkboxPairs.forEach(pair => {
+        addCheckboxEventListeners(pair[0], pair[1]);
+    });
+    
+      
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+ 
+  {% comment %} <a class="nav-link" href="{% url 'success' %}" >Success</a> {% endcomment %}
+  <div class="d-flex justify-content-center align-items-center mt-4 vh-100">
+  <div class="card" style="width: 30rem;">
+    <div class="card-body text-center">
+      <h3 class="card-title">Data submitted successfully!</h3>
+     
+     <button class="btn"><a href="{% url 'create' %}"  class="btn btn-primary">Home</a></button>
+     <button class="btn"><a href="https://www.google.com/" target="_blank"  class="btn btn-danger">Exit</a></button>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
